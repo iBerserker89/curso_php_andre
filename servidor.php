@@ -3,7 +3,7 @@
 define('db_host', 'db');
 define('db_user', 'root');
 define('db_pass', 'root');
-define('db_name', 'phponline');
+define('db_name', 'default');
 
 $mysql = mysqli_connect(db_host, db_user, db_pass, db_name, 3306);
 
