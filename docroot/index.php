@@ -25,8 +25,21 @@ consulta_dados("delete from livros where id = '1'");
 */
 
 // select
-$livros_query = consulta_dados('select * from livros');
-while ($livro = mysqli_fetch_array($livros_query)) {
+$livros_query = consulta_dados('
+    select 
+        livros.titulo, 
+        livros.categoria, 
+        livros.preco, 
+        livros.paginas, 
+        autores.nome as autor
+    from 
+        livros, 
+        autores
+    where 
+        livros.autor_id = autores.id
+');
+
+while ($livro = mysqli_fetch_assoc($livros_query)) {
     echo '<pre>';
     print_r($livro);
     echo '</pre>';
